@@ -9,22 +9,22 @@ namespace HelloWorld
     internal class Program
     {
         static void Main(string[] args)
-       
+
         {
             //Introduction to this application.
             Console.WriteLine("Hi, hope you're well! Would you like to use this paint calculator?");
             string ans = Console.ReadLine();
             ans.ToLower();
-            if (ans=="yes")
+            if (ans == "yes")
 
-            //The formula below will output the area of the wall
-            Console.WriteLine("Please write the length of the wall:");
-            float length= float.Parse(Console.ReadLine());
+                //The formula below will output the area of the wall
+                Console.WriteLine("Please write the length of the wall:");
+            float length = float.Parse(Console.ReadLine());
             Console.WriteLine("Please write the width of the wall");
-            float width= float.Parse(Console.ReadLine());
+            float width = float.Parse(Console.ReadLine());
 
             float area = length * width;
-            Console.WriteLine("The area of your wall is:"+area+"m^2 ");
+            Console.WriteLine("The area of your wall is:" + area + "m^2 ");
             //one 10l tub of paint will cover approx 120m^2 
             //Therefore, divide the area of the wall by 120m^2 to get the number of tubs needed. 
             float divide = area / 120;
@@ -35,8 +35,9 @@ namespace HelloWorld
 
             // Dependent upon the number of coats needed on the wall, the number of tubs may differ. 
             Console.WriteLine("////////////////////////////////////////////////////////////////////////////////////////");
+
             Console.WriteLine("Please state the number of coats needed on this particular wall:");
-            int coats= int.Parse(Console.ReadLine());
+            int coats = int.Parse(Console.ReadLine());
             Console.WriteLine(coats * divide);
             double c = Math.Ceiling(coats * divide);
             Console.WriteLine("Hence, for " + coats + " number of coats, the number of paint tubs required would be " + c + "");
@@ -49,7 +50,7 @@ namespace HelloWorld
             Console.WriteLine("//////////////////////////////////////////////////////////////////////////////////////////////");
 
             Console.WriteLine("Does this particular wall have an arc?");
-            string ANS= Console.ReadLine();
+            string ANS = Console.ReadLine();
             ANS.ToLower();
             if (ANS == "yes")
             {
@@ -65,20 +66,19 @@ namespace HelloWorld
             }
 
             Console.WriteLine("////////////////////////////////////////////////////////////////////////////////////////////////");
-            
-
 
             Console.WriteLine("Please state the estimated number of hours required to paint this wall");
-            float WW= float.Parse(Console.ReadLine());
-            if (WW <= 8)
+            float WW = float.Parse(Console.ReadLine());
+            float HH = WW / 8;
+            if (HH <= 1)
             {
                 Console.WriteLine("Complete the Paint Job today");
             }
-            else if (WW <= 16)
+            else if (HH <= 2)
             { Console.WriteLine("Complete the Paint Job over the course of two days"); }
-            else if (WW <= 24)
+            else if (HH <= 3)
             { Console.WriteLine("Complete the Paint Job over the course of three days"); }
-            else if (WW > 24)
+            else if (HH > 3)
             { Console.WriteLine("This paint job requires atleast a week"); }
 
             Console.WriteLine("///////////////////////////////////////////////////////////////////////////////");
@@ -93,27 +93,30 @@ namespace HelloWorld
 
 
             if (userselection.ToLower() == "white")
-            { priceofpaint = 10;
+            {
+                priceofpaint = 10;
                 Console.WriteLine("The price of white paint is £10");
                 double TC = (priceofpaint * c);
                 Console.WriteLine("Given this particular colour type and the number of paint tubs required, the total cost of this would be £" + TC + "");
             }
             if (userselection.ToLower() == "black")
-            { priceofpaint = 11;
+            {
+                priceofpaint = 11;
                 Console.WriteLine("The price of black paint is £10.99");
                 double TC = (priceofpaint * c);
                 Console.WriteLine("Given this particular colour type and the number of paint tubs required, the total cost of this would be £" + TC + "");
             }
             if (userselection.ToLower() == "blue")
-            { priceofpaint = 15;
+            {
+                priceofpaint = 15;
                 Console.WriteLine("The price of blue paint is £15.99");
                 double TC = (priceofpaint * c);
                 Console.WriteLine("Given this particular colour type and the number of paint tubs required, the total cost of this would be £" + TC + "");
             }
-            if(userselection.ToLower()=="red")
-                    {
+            if (userselection.ToLower() == "red")
+            {
                 priceofpaint = 16;
-                            Console.WriteLine("The price of red paint is £16");
+                Console.WriteLine("The price of red paint is £16");
                 double TC = (priceofpaint * c);
                 Console.WriteLine("Given this particular colour type and the number of paint tubs required, the total cost of this would be £" + TC + "");
             }
@@ -132,14 +135,13 @@ namespace HelloWorld
                 Console.WriteLine("Given this particular colour type and the number of paint tubs required, the total cost of this would be £" + TC + "");
 
             }
-            if (ans == "no") ;
-            Console.WriteLine("No worries, have a nice day!");
 
             //The following is practice about switches
 
             Console.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
 
             int day = 4;
+
 
             switch (day)
             {
@@ -171,73 +173,115 @@ namespace HelloWorld
                     Console.WriteLine("Sunday");
                     break;
             }
+            // Practice on array/loops etc 
 
-            //A simple calculator program for the painter to use
             {
-                char operation;
-                double first, second, result;
-
-                Console.WriteLine("Enter your first number: ");
-                first= Convert.ToDouble(Console.ReadLine());
-
-                Console.WriteLine("Enter your second number: ");
-                second= Convert.ToDouble(Console.ReadLine());
-
-                Console.WriteLine("Please select what operation you would like to use (+, -, *, /): ");
-                operation= (char)Console .Read();
-
-                switch(operation)
+                Console.WriteLine("Please state whether the wall have any windows or doors?");
+                string Ans = Console.ReadLine();
+                Ans.ToLower();
+                if (Ans == "yes")
                 {
-                    case '+':
-                        result = first + second;
-                        Console.WriteLine(first + second);
-                        break;
+                    Console.WriteLine("Please state the length of the window/door");
+                    double length1 = double.Parse(Console.ReadLine());
 
-                    case '-':
-                        result = first - second;
-                        Console.WriteLine(first - second);
-                        break;
+                    Console.WriteLine("Please state the width of the window/door");
+                    double width1 = double.Parse(Console.ReadLine());
 
-                    case '*':
-                        result = first * second;
-                        Console.WriteLine(first * second);
-                        break;
+                    double area1 = length1 * width1;
+                    Console.WriteLine("The area of your window/door is " + area1 + " m^2");
 
-                    case '/':
-                        result = first / second;
-                        Console.WriteLine(first / second);
-                        break;
+                    double TA1 = area - area1;
+
+                    Console.WriteLine("As a result, the area which needs to be painted is " + TA1 + "m^2");
+
+                    double COST2 = TA1 / 120;
+                    double I = Math.Ceiling(COST2);
+
+                    Console.WriteLine("The total number of paint tubs needed to purchase would be " + I + "");
+                    Console.WriteLine("The ")
 
 
+
+
+
+                    //A simple calculator program for the painter to use
+                    {
+                        double operation;
+                        double first, second, result;
+
+                        Console.WriteLine("Enter your first number: ");
+                        first = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("Enter your second number: ");
+                        second = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("Please select what operation you would like to use (+, -, *, /): ");
+                        operation = (double)Console.Read();
+
+                        switch (operation)
+                        {
+                            case '+':
+                                result = first + second;
+                                Console.WriteLine(first + second);
+                                break;
+
+                            case '-':
+                                result = first - second;
+                                Console.WriteLine(first - second);
+                                break;
+
+                            case '*':
+                                result = first * second;
+                                Console.WriteLine(first * second);
+                                break;
+
+                            case '/':
+                                result = first / second;
+                                Console.WriteLine(first / second);
+                                break;
+
+
+
+
+
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    }
                 }
-            
-            
-             
-      
-          
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
         }
     }
 }
